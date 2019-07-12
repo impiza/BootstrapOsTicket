@@ -1,0 +1,82 @@
+# File created using '.gitignore Generator' for Visual Studio Code: https://bit.ly/vscode-gig
+
+# Created by https://www.gitignore.io/api/linux,visualstudiocode
+# Edit at https://www.gitignore.io/?templates=linux,visualstudiocode
+
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+
+# End of https://www.gitignore.io/api/linux,visualstudiocode
+
+# Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
+/api/*
+/apps/*
+/assets/default/*
+/assets/font/*
+/css/*
+/images/*
+/include/cli/*
+/include/config/*
+/include/fpdf/*
+/include/i18n/*
+/include/mpdf/*
+/include/pear/*
+/include/plugins/*
+/include/.htaccess
+/include/.MANIFEST
+/include/ost-config.php
+/include/mysqli.php
+/include/PasswordHash.php
+/include/Spyc.php
+/include/tnef_decoder.php
+/include/UniversalClassLoader.php
+/include/JSON.php
+/include/index.php
+/js/*
+/kb/*
+/pages/*
+/setup/*
+/scp/apps/*
+/scp/images/*
+/scp/js/*
+/scp/css/*
+web.config
+view.php
+tickets.php
+secure.inc.php
+pwreset.php
+profile.php
+open.php
+manage.php
+main.inc.php
+logout.php
+login.php
+logo.php
+file.php
+client.inc.php
+captcha.php
+avatar.php
+ajax.php
