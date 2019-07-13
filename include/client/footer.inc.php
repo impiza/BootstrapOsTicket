@@ -35,8 +35,10 @@ if (($lang = Internationalization::getCurrentLanguage()) && $lang != 'en_US') { 
 <!-- Theme js assets -->
 <script type="text/javascript" src="<?php echo THEME_PATH; ?>js/popper.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="<?php echo THEME_PATH; ?>js/bootstrap.min.js" crossorigin="anonymous"></script>
-<script type="text/javascript" src="<?php echo MATERIAL_PATH; ?>js/bootstrap-material-design.min.js" crossorigin="anonymous"></script>
-<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+<?php if ($ismaterial) { ?>
+    <script type="text/javascript" src="<?php echo MATERIAL_PATH; ?>js/bootstrap-material-design.min.js" crossorigin="anonymous"></script>
+    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+<?php } ?>
 <!-- END THEME JS ASSETS -->
 </body>
 </html>

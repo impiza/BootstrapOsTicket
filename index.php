@@ -20,30 +20,63 @@ require_once INCLUDE_DIR . 'class.page.php';
 $section = 'home';
 require(CLIENTINC_DIR.'header.inc.php');
 ?>
-<div id="landing_page">
-<?php include CLIENTINC_DIR.'templates/sidebar.tmpl.php'; ?>
-<div class="main-content">
-<?php
-if ($cfg && $cfg->isKnowledgebaseEnabled()) { ?>
-<div class="search-form">
-    <form method="get" action="kb/faq.php">
-    <input type="hidden" name="a" value="search"/>
-    <input type="text" name="q" class="search" placeholder="<?php echo __('Search our knowledge base'); ?>"/>
-    <button type="submit" class="green button"><?php echo __('Search'); ?></button>
-    </form>
-</div>
-    <div class="thread-body">
-<?php
-}
-    if($cfg && ($page = $cfg->getLandingPage()))
+<div class="col-md-12 mt-4">
+    <?php if($cfg && ($page = $cfg->getLandingPage()))
         echo $page->getBodyWithImages();
     else
         echo  '<h1>'.__('Welcome to the Support Center').'</h1>';
     ?>
+    <?php
+    if ($cfg && $cfg->isKnowledgebaseEnabled()) { ?>
+    <form class="form-row m-3" method="get" action="kb/faq.php">
+        <input type="hidden" name="a" value="search"/>
+        <div class="col">
+            <input type="text" name="q" class="form-control" placeholder="<?php echo __('Search our knowledge base'); ?>"/>
+        </div>
+        <div class="col-2">
+            <button type="submit" class="btn btn-success"><i class="fas fa-search"></i> <?php echo __('Search'); ?></button>
+        </div>
+    </form>
+    <?php
+    } ?>
+</div>
+<?php
+$BUTTONS = isset($BUTTONS) ? $BUTTONS : true;
+?>
+<?php if ($BUTTONS) { ?>
+<div class="container">
+    <div class="row justify-content-center">
+<?php
+    if ($cfg->getClientRegistrationMode() != 'disabled'
+        || !$cfg->isClientLoginRequired()) { ?>
+        <div class="col-md m-2">
+            <div class="card text-center text-white bg-info">
+                <div class="card-header">
+                    <?php echo __('Open a New Ticket');?>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Please provide as much detail as possible so we can best assist you. To update a previously submitted ticket, please login.</p>
+                    <a href="open.php" class="btn btn-outline-light"><i class="fas fa-location-arrow"></i> <?php echo __('Open a New Ticket');?></a>
+                </div>
+            </div>
+        </div>
+<?php } ?>
+        <div class="col-md m-2">
+            <div class="card text-center text-white bg-success">
+                <div class="card-header">
+                    <?php echo __('Check Ticket Status');?>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">We provide archives and history of all your current and past support requests complete with responses.</p>
+                    <a href="view.php" class="btn btn-outline-light"><i class="fas fa-clipboard-list"></i> <?php echo __('Check Ticket Status');?></a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-<div class="clear"></div>
-
+<?php } ?>
+<div id="landing_page">
+<?php include CLIENTINC_DIR.'templates/sidebar.tmpl.php'; ?>
 <div>
 <?php
 if($cfg && $cfg->isKnowledgebaseEnabled()){

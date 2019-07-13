@@ -11,7 +11,7 @@ html {
 }
 
 .main-raised{
-  margin: 30px;
+  margin: 20px;
   border-radius: 6px;
   box-shadow: 0 16px 24px 2px rgba(0,0,0,.14),0 6px 30px 5px rgba(0,0,0,.12),0 8px 10px -5px rgba(0,0,0,.2);
 }
@@ -103,29 +103,6 @@ html {
   th {
     text-align: left;
     font-weight: normal;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  form,
-  fieldset {
-    margin: 0;
-    padding: 0;
-  }
-  h1 {
-    color: #00AEEF;
-    font-weight: normal;
-    font-size: 20px;
-  }
-  h3 {
-    font-size: 16px;
-  }
-  h2, .subject {
-    font-size: 16px;
-    color: black;
   }
   /* Helpers */
   .centered {
@@ -404,8 +381,6 @@ html {
     margin: 0 auto;
     background: url('../images/poweredby.png') top left no-repeat;
     background-size: auto 20px;
-  }
-  .front-page-button {
   }
   .main-content {
     width: 565px;

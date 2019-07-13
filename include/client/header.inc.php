@@ -17,6 +17,7 @@ if (($lang = Internationalization::getCurrentLanguage())) {
 <!DOCTYPE html>
 <html <?php
 $isrtl = False;
+$ismaterial = False; //Change value for enable/disable material theme
 if ($lang
     && ($info = Internationalization::getLanguageInfo($lang))
     && (@$info['direction'] == 'rtl')) {
@@ -38,11 +39,13 @@ if ($lang) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Theme Assets -->
     <link rel="stylesheet" href="<?php echo THEME_PATH; ?>css/bootstrap<?php echo $isrtl ? '-rtl' : ''; ?>.min.css" crossorigin="anonymous" />
-    <link rel="stylesheet" href="<?php echo MATERIAL_PATH; ?>css/bootstrap-material-design.min.css" crossorigin="anonymous" />
+    <?php if ($ismaterial) { ?>
+        <link rel="stylesheet" href="<?php echo MATERIAL_PATH; ?>css/bootstrap-material-design.min.css" crossorigin="anonymous" />
+        <!-- Material Design for Bootstrap fonts and icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <?php } ?>
     <!-- FontAwesome 5.9.0 icons -->
     <link rel="stylesheet" href="<?php echo ROOT_PATH; ?>assets/AwesomeFont/css/all.min.css" crossorigin="anonymous"/>
-    <!-- Material Design for Bootstrap fonts and icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
     <!--Theme Custom asset -->
     <link rel="stylesheet" href="<?php echo THEME_PATH; ?>theme-redesign.css" />
 
