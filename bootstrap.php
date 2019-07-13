@@ -359,6 +359,9 @@ require(INCLUDE_DIR.'class.validator.php');
 if (!defined('ROOT_PATH') && ($rp = osTicket::get_root_path(dirname(__file__))))
     define('ROOT_PATH', rtrim($rp, '/').'/');
 
+define('THEME_PATH',ROOT_PATH.'assets/bootstrap/');
+define('MATERIAL_PATH',ROOT_PATH.'assets/bootstrap-material-design/');
+
 Bootstrap::init();
 
 #CURRENT EXECUTING SCRIPT.
