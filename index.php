@@ -28,13 +28,13 @@ require(CLIENTINC_DIR.'header.inc.php');
     ?>
     <?php
     if ($cfg && $cfg->isKnowledgebaseEnabled()) { ?>
-    <form class="form-row m-3" method="get" action="kb/faq.php">
+    <form class="form-row m-4" method="get" action="kb/faq.php">
         <input type="hidden" name="a" value="search"/>
-        <div class="col">
+        <div class="col-md">
             <input type="text" name="q" class="form-control" placeholder="<?php echo __('Search our knowledge base'); ?>"/>
         </div>
-        <div class="col-2">
-            <button type="submit" class="btn btn-success"><i class="fas fa-search"></i> <?php echo __('Search'); ?></button>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-success btn-block"><i class="fas fa-search"></i> <?php echo __('Search'); ?></button>
         </div>
     </form>
     <?php
@@ -75,41 +75,54 @@ $BUTTONS = isset($BUTTONS) ? $BUTTONS : true;
     </div>
 </div>
 <?php } ?>
-<div id="landing_page">
-<?php include CLIENTINC_DIR.'templates/sidebar.tmpl.php'; ?>
-<div>
-<?php
-if($cfg && $cfg->isKnowledgebaseEnabled()){
-    //FIXME: provide ability to feature or select random FAQs ??
-?>
-<br/><br/>
-<?php
-$cats = Category::getFeatured();
-if ($cats->all()) { ?>
-<h1><?php echo __('Featured Knowledge Base Articles'); ?></h1>
-<?php
-}
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-md">
+        <?php
+        if($cfg && $cfg->isKnowledgebaseEnabled()){
+            //FIXME: provide ability to feature or select random FAQs ??
+        ?>
+            <?php
+            $cats = Category::getFeatured();
+            if ($cats->all()) { ?>
+                <h3 class="pb-4 mb-4 font-italic">
+                    <?php echo __('Featured Knowledge Base Articles'); ?>
+                </h3>
+                <?php
+            }
 
-    foreach ($cats as $C) { ?>
-    <div class="featured-category front-page">
-        <i class="icon-folder-open icon-2x"></i>
-        <div class="category-name">
-            <?php echo $C->getName(); ?>
+            foreach ($cats as $C) { ?>
+                <div class="card mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-md-3 text-center my-auto">
+                            <i class="fas fa-folder fa-5x text-info"></i>
+                        </div>
+                        <div class="col-md-9 border-left">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $C->getName(); ?></h5>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <?php foreach ($C->getTopArticles() as $F) { ?>
+                                <li class="list-group-item">
+                                    <div class="article-title"><a href="<?php echo ROOT_PATH;
+                                    ?>kb/faq.php?id=<?php echo $F->getId(); ?>"><?php
+                                    echo $F->getQuestion(); ?></a></div>
+                                    <div class="article-teaser"><?php echo $F->getTeaser(); ?></div>
+                                </li>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="featured-category front-page">
+                    
+                </div>
+            <?php
+            }
+        }
+        ?>
         </div>
-<?php foreach ($C->getTopArticles() as $F) { ?>
-        <div class="article-headline">
-            <div class="article-title"><a href="<?php echo ROOT_PATH;
-                ?>kb/faq.php?id=<?php echo $F->getId(); ?>"><?php
-                echo $F->getQuestion(); ?></a></div>
-            <div class="article-teaser"><?php echo $F->getTeaser(); ?></div>
-        </div>
-<?php } ?>
+        <?php include CLIENTINC_DIR.'templates/sidebar.tmpl.php'; ?>
     </div>
-<?php
-    }
-}
-?>
 </div>
-</div>
-
 <?php require(CLIENTINC_DIR.'footer.inc.php'); ?>
