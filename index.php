@@ -85,7 +85,7 @@ $BUTTONS = isset($BUTTONS) ? $BUTTONS : true;
             <?php
             $cats = Category::getFeatured();
             if ($cats->all()) { ?>
-                <h3 class="pb-4 mb-4 font-italic">
+                <h3 class="pb-4 mb-4">
                     <?php echo __('Featured Knowledge Base Articles'); ?>
                 </h3>
                 <?php

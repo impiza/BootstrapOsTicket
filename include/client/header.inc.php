@@ -190,7 +190,7 @@ echo http_build_query($qs); ?>" hreflang="<?php echo $L; ?>" />
     <main class="main main-raised" role="main">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 mt-4">
             <?php if ($errors['err']) {?>
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <?php echo $errors['err']; ?>

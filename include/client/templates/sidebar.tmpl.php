@@ -1,4 +1,4 @@
-<aside class="col-md-4">
+<aside class="col-md-4 border">
     <div class="p-4 mb-3 bg-light rounded">
         <?php
         if ($cfg->isKnowledgebaseEnabled()
