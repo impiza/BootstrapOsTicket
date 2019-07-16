@@ -9,7 +9,7 @@ if ($cfg->isClientEmailVerificationRequired())
 else
     $button = __("View Ticket");
 ?>
-<div class="col-md-12 mt-4 mb-4">
+<div class="col-md-12 my-4">
 <h2><?php echo __('Check Ticket Status'); ?></h2>
 <p class="text-muted"><?php
 echo __('Please provide your email address and a ticket number.');
@@ -22,10 +22,10 @@ else
     <div class="row">
         <div class="card col-md-12 rounded shadow">
             <div class="card-body">
-                <div class="row">
+                <div class="row my-2">
                     <?php if (isset($errors['login'])) { ?>
                         <div class="col-md-12">
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <strong><?php echo Format::htmlchars($errors['login']); ?></strong>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
