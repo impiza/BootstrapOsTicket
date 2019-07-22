@@ -83,7 +83,7 @@
     <div class="searchbar">
         <form method="get" action="faq.php">
         <input type="hidden" name="a" value="search"/>
-        <select name="topicId"  style="width:100%;max-width:100%"
+        <select class="form-control" name="topicId"  style="width:100%;max-width:100%"
             onchange="javascript:this.form.submit();">
             <option value="">—<?php echo __("Browse by Topic"); ?>—</option>
 <?php

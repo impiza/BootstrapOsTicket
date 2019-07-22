@@ -24,7 +24,8 @@ $info = Format::htmlchars(($errors && $_POST)?$_POST:$info);
   <?php csrf_token(); ?>
   <input type="hidden" name="do" value="<?php echo Format::htmlchars($_REQUEST['do']
     ?: ($info['backend'] ? 'import' :'create')); ?>" />
-<table width="800" class="padded">
+    <div class="table-responsive">
+<table class="padded table table-borderless">
 <tbody>
 <?php
     $cf = $user_form ?: UserForm::getInstance();
@@ -91,10 +92,11 @@ $info = Format::htmlchars(($errors && $_POST)?$_POST:$info);
 <?php } ?>
 </tbody>
 </table>
+</div>
 <hr>
 <p style="text-align: center;">
-    <input type="submit" value="Register"/>
-    <input type="button" value="Cancel" onclick="javascript:
+    <input class="btn btn-success" type="submit" value="Register"/>
+    <input class="btn btn-danger" type="button" value="Cancel" onclick="javascript:
         window.location.href='index.php';"/>
 </p>
 </form>

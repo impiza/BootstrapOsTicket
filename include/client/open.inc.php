@@ -62,7 +62,7 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
             </td></tr>
             <tr>
             <td colspan="2">
-                <select id="topicId" name="topicId" onchange="javascript:
+                <select class="form-control" id="topicId" name="topicId" onchange="javascript:
                     var data = $(':input[name]', '#dynamic-form').serialize();
                     $.ajax(
                       'ajax.php/form/help-topic/' + this.value,
@@ -121,9 +121,9 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
         </div>
     <hr/>
     <p class="buttons" style="text-align:center;">
-        <input type="submit" value="<?php echo __('Create Ticket');?>">
-        <input type="reset" name="reset" value="<?php echo __('Reset');?>">
-        <input type="button" name="cancel" value="<?php echo __('Cancel'); ?>" onclick="javascript:
+        <input class="btn btn-success" type="submit" value="<?php echo __('Create Ticket');?>">
+        <input class="btn btn-primary" type="reset" name="reset" value="<?php echo __('Reset');?>">
+        <input class="btn btn-danger" type="button" name="cancel" value="<?php echo __('Cancel'); ?>" onclick="javascript:
             $('.richtext').each(function() {
                 var redactor = $(this).data('redactor');
                 if (redactor && redactor.opts.draftDelete)
